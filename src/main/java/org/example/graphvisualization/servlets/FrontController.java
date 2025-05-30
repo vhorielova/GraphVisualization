@@ -16,11 +16,14 @@ public class FrontController extends HttpServlet {
     public void init() {
         routes.put("/", new IndexHandler());
         routes.put("/algorithms", new AlgorithmsHandler());
+        routes.put("/about-us", new AboutHandler());
+        routes.put("/dfs", new DFSHandler());
+        routes.put("/bfs", new BFSHandler());
+        routes.put("/dijkstra", new DijkstraHandler());
+        routes.put("/floyd", new FloydHandler());
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html");
-
         String URI = String.valueOf(request.getServletPath());
 
         Handler handler = routes.get(URI);
